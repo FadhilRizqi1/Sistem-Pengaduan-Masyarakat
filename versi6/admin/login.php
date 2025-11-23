@@ -16,7 +16,7 @@
         $stmt->execute();
         $valid_user = $stmt->fetch(PDO::FETCH_ASSOC);
         // jika user terdaftar dan password cocok
-        if($valid_user && password_verify($password, $valid_user['password'])){
+        if($valid_user && hash('sha256', $password) === $valid_user['password']){
                 // buat Session
                 session_start();
                 session_regenerate_id(true); // regenerate session ID for security
@@ -25,7 +25,7 @@
                 header("Location: index");
                 exit();
         }
-        // jika ada akun belum terdaftar
+        // jika ada akun belum terdaftar atau password salah
         else {
             $message = "Username atau Password Salah";
         }
