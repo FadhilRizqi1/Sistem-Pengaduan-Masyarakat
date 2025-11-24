@@ -1,94 +1,125 @@
-# Sistem Pengaduan Masyarakat Berbasis Web
+# 📢 LaporPeh! - Layanan Aspirasi Wong Kito
 
-[![](https://gitlab.com/gitlab-org/gitlab-ee/badges/master/build.svg)](https://wahidari.github.io)
-[![](https://semaphoreci.com/api/v1/projects/2f1a5809-418b-4cc2-a1f4-819607579fe7/400484/shields_badge.svg)](https://wahidari.github.io)
-[![](https://img.shields.io/badge/docs-latest-brightgreen.svg?style=flat&maxAge=86400)](https://wahidari.github.io)
-[![](https://img.shields.io/badge/Find%20Me-%40wahidari-009688.svg?style=social)](https://wahidari.github.io)
+![LaporPeh Logo](images/TeksLogoFix.png)
 
-## Language
+**LaporPeh!** adalah sebuah platform layanan aspirasi dan pengaduan masyarakat berbasis web yang modern, responsif, dan transparan. Aplikasi ini dirancang untuk menjembatani komunikasi antara warga Kota Palembang dengan pemerintah setempat, memungkinkan pelaporan masalah publik (seperti infrastruktur, administrasi, keamanan) secara cepat dan pemantauan status tindak lanjut secara _real-time_.
 
-- [![](https://img.shields.io/badge/html-5-FF5722.svg)](https://www.w3schools.com/html/default.asp) 
-- [![](https://img.shields.io/badge/css-3-03A9F4.svg)](https://www.w3schools.com/cssref/)
-- [![](https://img.shields.io/badge/javascript-1.8-FFCA28.svg)](https://www.w3schools.com/js/default.asp)
-- [![](https://img.shields.io/badge/php-7.1.8-673AB7.svg)](https://www.php.net/) 
-- [![](https://img.shields.io/badge/mysql-5.0.12-yellow.svg)](https://www.mysql.com/) 
+> _"Suara Anda, Perubahan Untuk Kita Semua."_
 
-## Screenshot
+---
 
-- ### Admin
+## 🚀 Fitur Utama
 
-    - Login
+### 🌍 Sisi Pengguna (Public)
 
-        ![](./ss/admin/login.png)
+- **Landing Page Modern:** Tampilan beranda yang bersih dengan _hero section_ menarik, statistik laporan _real-time_, dan _feed_ aspirasi terkini.
+- **Formulir Pengaduan:** Antarmuka pelaporan yang mudah digunakan dengan validasi data, kategori laporan, dan keamanan Captcha.
+- **Sistem Tiket & Pelacakan:** Setiap laporan mendapatkan Nomor Tiket unik. Warga dapat memantau progres laporan (Menunggu/Selesai) dan melihat tanggapan petugas secara transparan.
+- **Privasi Terjaga:** Opsi pelaporan yang aman dengan perlindungan data pribadi.
+- **Desain Responsif:** Tampilan optimal di berbagai perangkat (Desktop, Tablet, Smartphone) menggunakan **Bootstrap 5**.
 
-    - Dashboard
+### 🛡️ Sisi Admin (Dashboard)
 
-        ![](./ss/admin/dashboard.png)
-        
-    - Kelola
+- **Autentikasi Aman:** Halaman login eksklusif dengan desain _Split Screen_ modern.
+- **Dashboard Statistik:** Ringkasan visual jumlah laporan masuk, menunggu verifikasi, dan selesai ditangani.
+- **Manajemen Laporan:** Tabel data interaktif (DataTables) dengan fitur pencarian dan penyortiran.
+  - 👁️ **Lihat Detail:** Membaca laporan lengkap.
+  - 💬 **Balas/Tindak Lanjut:** Memberikan respons resmi kepada pelapor.
+  - 🗑️ **Hapus:** Menghapus laporan yang tidak valid atau spam.
+- **Ekspor Data:** Fitur unduh rekap laporan ke format **Excel**, **PDF**, atau **Cetak (Print)** untuk kebutuhan arsip dinas.
 
-        ![](./ss/admin/tables.png)
-        
-    - Hapus Laporan
+---
 
-        ![](./ss/admin/hapus-laporan.png)
-        
-    - Balas Laporan
+## 🛠️ Teknologi yang Digunakan
 
-        ![](./ss/admin/balas-laporan.png)
-        
-    - Detail Laporan
+Aplikasi ini dibangun dengan teknologi web standar yang handal dan mudah dikembangkan:
 
-        ![](./ss/admin/detail-laporan.png)
-        
-    - Ekspor
+**Backend:**
 
-        ![](./ss/admin/export.png)
-        
-    - Print
+- **PHP Native (7.4+)**: Logika pemrosesan data yang cepat dan efisien.
+- **MySQL / MariaDB**: Penyimpanan basis data relasional yang stabil.
+- **PDO (PHP Data Objects)**: Koneksi database yang aman (mencegah SQL Injection).
 
-        ![](./ss/admin/export-print.png)
-        
-- ### User
+**Frontend:**
 
-    - Home
+- **HTML5 & CSS3**: Struktur dan gaya dasar.
+- **Bootstrap 5 (User)**: Framework UI modern untuk tampilan publik.
+- **Bootstrap 4 + SB Admin 2 (Admin)**: Framework UI robust untuk panel dashboard.
+- **Google Fonts**: Menggunakan font _Plus Jakarta Sans_ untuk tipografi modern.
+- **FontAwesome 6**: Ikon vektor berkualitas tinggi.
+- **Animate.css**: Animasi halus pada elemen antarmuka.
 
-        ![](./ss/user/user-home-1.png)
-        
-        ![](./ss/user/user-home-2.png)
-        
-    - Lapor
+**Plugins & Libraries:**
 
-        ![](./ss/user/user-lapor-1.png)
-        
-    - Lihat
+- **jQuery**: Manipulasi DOM dan event handling.
+- **DataTables**: Tabel canggih dengan fitur _search_, _pagination_, dan _export_.
+- **PHP GD Library**: Digunakan untuk _Captcha generator_.
 
-        ![](./ss/user/user-lihat-1.png)
+---
 
-        ![](./ss/user/user-lihat-2.png)
-        
-    - Cara
+## 📸 Tangkapan Layar (Screenshots)
 
-        ![](./ss/user/user-cara.png)
-        
-    - FAQ
+|                  Halaman Utama                  |                   Halaman Lapor                   |
+| :---------------------------------------------: | :-----------------------------------------------: |
+| ![Home](images/screenshot_home_placeholder.png) | ![Lapor](images/screenshot_lapor_placeholder.png) |
 
-        ![](./ss/user/user-faq.png)
-        
-    - Bantuan
+|                      Cek Status                      |                  Admin Dashboard                  |
+| :--------------------------------------------------: | :-----------------------------------------------: |
+| ![Tracking](images/screenshot_track_placeholder.png) | ![Admin](images/screenshot_admin_placeholder.png) |
 
-        ![](./ss/user/user-bantuan.png)
-        
-    - Kontak
+---
 
-        ![](./ss/user/user-kontak.png)
-        
-    - Profil Dinas
+## ⚙️ Cara Instalasi
 
-        ![](./ss/user/user-profildinas.png)
-        
-        ![](./ss/user/user-profildinas-motto.png)
-        
-        ![](./ss/user/user-profildinas-struktur.png)
-        
-        ![](./ss/user/user-profildinas-visi.png)
+Ikuti langkah-langkah berikut untuk menjalankan proyek ini di komputer lokal Anda (XAMPP/WAMP/MAMP):
+
+1.  **Clone atau Unduh:**
+    Unduh source code proyek ini dan ekstrak ke dalam folder server lokal Anda (misalnya: `C:\xampp\htdocs\laporpeh`).
+
+2.  **Persiapan Database:**
+
+    - Buka **phpMyAdmin** (`http://localhost/phpmyadmin`).
+    - Buat database baru dengan nama `kp` (atau sesuaikan dengan konfigurasi).
+    - Impor file `database/kp.sql` ke dalam database yang baru dibuat.
+
+3.  **Konfigurasi Koneksi:**
+
+    - Buka file `private/database.php` dan `admin/database.php`.
+    - Sesuaikan pengaturan database jika perlu:
+      ```php
+      $db_host = "localhost";
+      $db_user = "root";
+      $db_pass = "";
+      $db_name = "kp";
+      ```
+
+4.  **Jalankan Aplikasi:**
+    - Buka browser dan akses: `http://localhost/laporpeh`
+    - Untuk akses admin: `http://localhost/laporpeh/admin`
+    - **Akun Admin Default:**
+      - Username: `admin`
+      - Password: `admin` (atau cek di tabel `admin` database, password terenkripsi SHA-256).
+
+---
+
+## 📂 Struktur Folder
+
+```text
+laporpeh/
+├── admin/              # Panel Administrator
+│   ├── css/            # Styling khusus admin
+│   ├── js/             # Script admin & chart
+│   ├── vendor/         # Library (Bootstrap, DataTables)
+│   ├── index.php       # Dashboard
+│   ├── login.php       # Halaman Login
+│   └── tables.php      # Manajemen Data
+├── css/                # Styling Halaman Publik (Bootstrap 5 custom)
+├── images/             # Aset Gambar (Logo, Avatar, Banner)
+├── js/                 # Script interaktif frontend
+├── private/            # Logika Backend (Koneksi, Validasi, Captcha)
+├── database/           # File Dump SQL
+├── index.php           # Landing Page
+├── lapor.php           # Halaman Form Pengaduan
+├── lihat.php           # Halaman Cek Status Laporan
+└── README.md           # Dokumentasi Proyek
+```
