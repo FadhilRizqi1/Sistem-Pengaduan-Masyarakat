@@ -25,7 +25,7 @@ Fitur yang dapat diakses oleh masyarakat umum tanpa perlu login:
 
 ### 🛡️ Sisi Administrator (Panel Admin)
 
-Panel kontrol eksklusif untuk petugas/admin
+Panel kontrol eksklusif untuk petugas/admin:
 
 - **Secure Login System:** Halaman login dengan enkripsi password **SHA-256** dan desain _Split Screen_ modern.
 - **Dashboard Statistik:** Ringkasan visual data laporan (Masuk, Menunggu, Selesai) dalam bentuk kartu statistik yang informatif.
