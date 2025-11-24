@@ -1,4 +1,4 @@
-# 📢 LaporPeh! - Platform Layanan Pengaduan Masyarakat
+# 📢 LaporPeh! - Sistem Pengaduan Masyarakat
 
 ![LaporPeh Banner](images/TeksLogoFix.png)
 
@@ -113,8 +113,8 @@ Ikuti langkah ini untuk menjalankan proyek di komputer Anda:
 
 4.  **Menjalankan Aplikasi:**
 
-    - **Akses User:** Buka browser dan ketik `http://localhost/laporpeh`
-    - **Akses Admin:** Buka browser dan ketik `http://localhost/laporpeh/admin`
+    - **Akses User:** Buka browser dan ketik `http://localhost/Sistem-Pengaduan-Masyarakat`
+    - **Akses Admin:** Buka browser dan ketik `http://localhost/Sistem-Pengaduan-Masyarakat/admin`
 
 5.  **Akun Administrator Default:**
     Gunakan kredensial berikut untuk masuk ke panel admin:
@@ -127,7 +127,7 @@ Ikuti langkah ini untuk menjalankan proyek di komputer Anda:
 ## 📂 Struktur Direktori
 
 ```text
-laporpeh/
+Sistem-Pengaduan-Masyarakat/
 ├── admin/                  # MODUL ADMINISTRATOR
 │   ├── css/                # Stylesheet khusus admin
 │   ├── js/                 # Script interaktif admin
