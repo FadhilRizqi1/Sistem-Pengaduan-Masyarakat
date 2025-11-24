@@ -1,125 +1,158 @@
-# 📢 LaporPeh! - Layanan Aspirasi Wong Kito
+# 📢 LaporPeh! - Platform Layanan Pengaduan Masyarakat
 
-![LaporPeh Logo](images/TeksLogoFix.png)
+![LaporPeh Banner](images/TeksLogoFix.png)
 
-**LaporPeh!** adalah sebuah platform layanan aspirasi dan pengaduan masyarakat berbasis web yang modern, responsif, dan transparan. Aplikasi ini dirancang untuk menjembatani komunikasi antara warga Kota Palembang dengan pemerintah setempat, memungkinkan pelaporan masalah publik (seperti infrastruktur, administrasi, keamanan) secara cepat dan pemantauan status tindak lanjut secara _real-time_.
+**LaporPeh!** adalah platform layanan aspirasi dan pengaduan masyarakat modern yang dirancang khusus untuk menjembatani komunikasi antara warga Kota Palembang dengan pemerintah setempat.
+
+Dibangun dengan pendekatan _User-Centric_, aplikasi ini menawarkan antarmuka yang bersih, responsif, dan transparan, memungkinkan masyarakat untuk melaporkan permasalahan kota (seperti infrastruktur rusak, masalah administrasi, atau keamanan) dan memantau tindak lanjutnya secara _real-time_.
 
 > _"Suara Anda, Perubahan Untuk Kita Semua."_
 
 ---
 
-## 🚀 Fitur Utama
+## 🌟 Fitur Unggulan
 
 ### 🌍 Sisi Pengguna (Public)
 
-- **Landing Page Modern:** Tampilan beranda yang bersih dengan _hero section_ menarik, statistik laporan _real-time_, dan _feed_ aspirasi terkini.
-- **Formulir Pengaduan:** Antarmuka pelaporan yang mudah digunakan dengan validasi data, kategori laporan, dan keamanan Captcha.
-- **Sistem Tiket & Pelacakan:** Setiap laporan mendapatkan Nomor Tiket unik. Warga dapat memantau progres laporan (Menunggu/Selesai) dan melihat tanggapan petugas secara transparan.
-- **Privasi Terjaga:** Opsi pelaporan yang aman dengan perlindungan data pribadi.
-- **Desain Responsif:** Tampilan optimal di berbagai perangkat (Desktop, Tablet, Smartphone) menggunakan **Bootstrap 5**.
+Fitur yang dapat diakses oleh masyarakat umum tanpa perlu login:
 
-### 🛡️ Sisi Admin (Dashboard)
+- **Hero Section Modern:** Tampilan beranda yang ramah dengan akses cepat (CTA) ke fitur utama.
+- **Formulir Pengaduan Cerdas:** Input laporan yang mudah dengan validasi data otomatis, pemilihan kategori, dan keamanan **Captcha** untuk mencegah spam.
+- **Tracking Sistem (Cek Resi):** Warga dapat memantau status laporan mereka cukup dengan memasukkan **Nomor Tiket Unik**.
+- **Transparansi Proses:** Menampilkan riwayat status laporan (Menunggu Verifikasi → Proses → Selesai) beserta tanggapan resmi dari petugas.
+- **Privasi & Keamanan:** Identitas pelapor dijaga kerahasiaannya (opsi laporan anonim tersedia secara sistem).
+- **Desain Responsif:** Tampilan optimal di semua perangkat (Desktop, Tablet, dan Smartphone).
 
-- **Autentikasi Aman:** Halaman login eksklusif dengan desain _Split Screen_ modern.
-- **Dashboard Statistik:** Ringkasan visual jumlah laporan masuk, menunggu verifikasi, dan selesai ditangani.
-- **Manajemen Laporan:** Tabel data interaktif (DataTables) dengan fitur pencarian dan penyortiran.
-  - 👁️ **Lihat Detail:** Membaca laporan lengkap.
-  - 💬 **Balas/Tindak Lanjut:** Memberikan respons resmi kepada pelapor.
-  - 🗑️ **Hapus:** Menghapus laporan yang tidak valid atau spam.
-- **Ekspor Data:** Fitur unduh rekap laporan ke format **Excel**, **PDF**, atau **Cetak (Print)** untuk kebutuhan arsip dinas.
+### 🛡️ Sisi Administrator (Panel Admin)
 
----
+Panel kontrol eksklusif untuk petugas/admin dengan desain **Premium Dashboard**:
 
-## 🛠️ Teknologi yang Digunakan
-
-Aplikasi ini dibangun dengan teknologi web standar yang handal dan mudah dikembangkan:
-
-**Backend:**
-
-- **PHP Native (7.4+)**: Logika pemrosesan data yang cepat dan efisien.
-- **MySQL / MariaDB**: Penyimpanan basis data relasional yang stabil.
-- **PDO (PHP Data Objects)**: Koneksi database yang aman (mencegah SQL Injection).
-
-**Frontend:**
-
-- **HTML5 & CSS3**: Struktur dan gaya dasar.
-- **Bootstrap 5 (User)**: Framework UI modern untuk tampilan publik.
-- **Bootstrap 4 + SB Admin 2 (Admin)**: Framework UI robust untuk panel dashboard.
-- **Google Fonts**: Menggunakan font _Plus Jakarta Sans_ untuk tipografi modern.
-- **FontAwesome 6**: Ikon vektor berkualitas tinggi.
-- **Animate.css**: Animasi halus pada elemen antarmuka.
-
-**Plugins & Libraries:**
-
-- **jQuery**: Manipulasi DOM dan event handling.
-- **DataTables**: Tabel canggih dengan fitur _search_, _pagination_, dan _export_.
-- **PHP GD Library**: Digunakan untuk _Captcha generator_.
+- **Secure Login System:** Halaman login dengan enkripsi password **SHA-256** dan desain _Split Screen_ modern.
+- **Dashboard Statistik:** Ringkasan visual data laporan (Masuk, Menunggu, Selesai) dalam bentuk kartu statistik yang informatif.
+- **Manajemen Laporan Terpusat:**
+  - **Tabel Interaktif (DataTables):** Fitur pencarian instan, pengurutan data, dan _pagination_.
+  - **Quick Actions:** Tombol aksi cepat untuk melihat Detail, Membalas, atau Menghapus laporan.
+- **Detail & Tindak Lanjut:**
+  - Melihat isi laporan secara mendalam menggunakan **Modal Pop-up** (tanpa reload halaman).
+  - Memberikan tanggapan resmi yang langsung terkirim ke sisi pengguna.
+  - **Auto-Update Status:** Status laporan otomatis berubah menjadi "Selesai" begitu admin memberikan tanggapan.
+- **Laporan & Arsip (Export):** Fitur unduh rekap data ke format **Excel**, **PDF**, atau **Print** langsung untuk kebutuhan laporan dinas.
 
 ---
 
-## 📸 Tangkapan Layar (Screenshots)
+## 📸 Galeri Tampilan (Screenshots)
 
-|                  Halaman Utama                  |                   Halaman Lapor                   |
-| :---------------------------------------------: | :-----------------------------------------------: |
-| ![Home](images/screenshot_home_placeholder.png) | ![Lapor](images/screenshot_lapor_placeholder.png) |
+Berikut adalah cuplikan antarmuka aplikasi LaporPeh!:
 
-|                      Cek Status                      |                  Admin Dashboard                  |
-| :--------------------------------------------------: | :-----------------------------------------------: |
-| ![Tracking](images/screenshot_track_placeholder.png) | ![Admin](images/screenshot_admin_placeholder.png) |
+### 1. Tampilan Pengguna (Public)
+
+Antarmuka yang bersih dan mudah digunakan oleh siapa saja.
+
+|                                       Halaman Utama (Home)                                       |                                          Formulir Lapor                                           |
+| :----------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------: |
+| ![Home Page](images/screenshot_home_placeholder.png)<br>_Hero section dengan navigasi intuitif._ | ![Form Lapor](images/screenshot_lapor_placeholder.png)<br>_Formulir pengaduan yang rapi & valid._ |
+
+|                                      Cek Status Tiket                                      |                                      Hasil Penelusuran                                       |
+| :----------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------: |
+| ![Tracking](images/screenshot_track_placeholder.png)<br>_Halaman pelacakan tiket laporan._ | ![Result](images/screenshot_result_placeholder.png)<br>_Status laporan dan balasan petugas._ |
+
+### 2. Panel Administrator
+
+Desain dashboard profesional untuk efisiensi kerja petugas.
+
+|                                     Login Administrator                                     |                                    Dashboard Utama                                    |
+| :-----------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
+| ![Login Admin](images/screenshot_login.png)<br>_Login split-screen dengan visual branding._ | ![Dashboard](images/screenshot_dashboard.png)<br>_Statistik real-time laporan masuk._ |
+
+|                                        Manajemen Data                                         |                                Ekspor Laporan                                 |
+| :-------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
+| ![Kelola Data](images/screenshot_tables.png)<br>_Tabel data lengkap dengan fitur aksi cepat._ | ![Export Data](images/screenshot_export.png)<br>_Cetak laporan ke Excel/PDF._ |
 
 ---
 
-## ⚙️ Cara Instalasi
+## 🛠️ Teknologi & Stack
 
-Ikuti langkah-langkah berikut untuk menjalankan proyek ini di komputer lokal Anda (XAMPP/WAMP/MAMP):
+Aplikasi ini dibangun menggunakan teknologi web standar yang handal (_Robust & Scalable_):
 
-1.  **Clone atau Unduh:**
-    Unduh source code proyek ini dan ekstrak ke dalam folder server lokal Anda (misalnya: `C:\xampp\htdocs\laporpeh`).
+- **Bahasa Pemrograman:** PHP Native (Versi 7.4 / 8.0+)
+- **Basis Data:** MySQL / MariaDB
+- **Konektivitas Database:** PHP Data Objects (PDO) - _Lebih aman dari SQL Injection._
+- **Frontend Framework:**
+  - **Bootstrap 5** (User Interface)
+  - **Bootstrap 4** (Admin Interface)
+- **Font & Tipografi:** Plus Jakarta Sans (Google Fonts)
+- **Library Pendukung:**
+  - **DataTables:** Untuk tabel interaktif canggih.
+  - **jQuery:** Untuk interaksi dinamis dan AJAX.
+  - **FontAwesome 6:** Ikon vektor modern.
+  - **Animate.css:** Animasi transisi elemen UI.
+  - **PHP GD Library:** Generator kode Captcha.
 
-2.  **Persiapan Database:**
+---
+
+## ⚙️ Panduan Instalasi (Localhost)
+
+Ikuti langkah ini untuk menjalankan proyek di komputer Anda:
+
+1.  **Persiapan Lingkungan:**
+    Pastikan Anda telah menginstal Web Server lokal seperti **XAMPP**, **WAMP**, atau **MAMP**.
+
+2.  **Setup Database:**
 
     - Buka **phpMyAdmin** (`http://localhost/phpmyadmin`).
-    - Buat database baru dengan nama `kp` (atau sesuaikan dengan konfigurasi).
-    - Impor file `database/kp.sql` ke dalam database yang baru dibuat.
+    - Buat database baru dengan nama: `kp` (sesuai konfigurasi default).
+    - Pilih database `kp`, lalu masuk ke tab **Import**.
+    - Pilih file `database/kp.sql` dari folder proyek ini dan klik **Go/Kirim**.
 
-3.  **Konfigurasi Koneksi:**
+3.  **Konfigurasi Proyek:**
 
-    - Buka file `private/database.php` dan `admin/database.php`.
-    - Sesuaikan pengaturan database jika perlu:
-      ```php
-      $db_host = "localhost";
-      $db_user = "root";
-      $db_pass = "";
-      $db_name = "kp";
-      ```
+    - Salin folder proyek `laporpeh` ke dalam direktori `htdocs` (XAMPP) atau `www` (WAMP).
+    - (Opsional) Jika nama database atau password berbeda, sesuaikan file koneksi:
+      - `private/database.php`
+      - `admin/database.php`
 
-4.  **Jalankan Aplikasi:**
-    - Buka browser dan akses: `http://localhost/laporpeh`
-    - Untuk akses admin: `http://localhost/laporpeh/admin`
-    - **Akun Admin Default:**
-      - Username: `admin`
-      - Password: `admin` (atau cek di tabel `admin` database, password terenkripsi SHA-256).
+4.  **Menjalankan Aplikasi:**
+
+    - **Akses User:** Buka browser dan ketik `http://localhost/laporpeh`
+    - **Akses Admin:** Buka browser dan ketik `http://localhost/laporpeh/admin`
+
+5.  **Akun Administrator Default:**
+    Gunakan kredensial berikut untuk masuk ke panel admin:
+    - **Username:** `admin`
+    - **Password:** `admin`
+      _(Catatan: Password disimpan dalam database menggunakan enkripsi SHA-256)_
 
 ---
 
-## 📂 Struktur Folder
+## 📂 Struktur Direktori
 
 ```text
 laporpeh/
-├── admin/              # Panel Administrator
-│   ├── css/            # Styling khusus admin
-│   ├── js/             # Script admin & chart
-│   ├── vendor/         # Library (Bootstrap, DataTables)
-│   ├── index.php       # Dashboard
-│   ├── login.php       # Halaman Login
-│   └── tables.php      # Manajemen Data
-├── css/                # Styling Halaman Publik (Bootstrap 5 custom)
-├── images/             # Aset Gambar (Logo, Avatar, Banner)
-├── js/                 # Script interaktif frontend
-├── private/            # Logika Backend (Koneksi, Validasi, Captcha)
-├── database/           # File Dump SQL
-├── index.php           # Landing Page
-├── lapor.php           # Halaman Form Pengaduan
-├── lihat.php           # Halaman Cek Status Laporan
-└── README.md           # Dokumentasi Proyek
+├── admin/                  # MODUL ADMINISTRATOR
+│   ├── css/                # Stylesheet khusus admin
+│   ├── js/                 # Script interaktif admin
+│   ├── images/             # Aset gambar admin
+│   ├── vendor/             # Dependensi (Bootstrap, DataTables, FontAwesome)
+│   ├── index.php           # Dashboard Utama
+│   ├── login.php           # Halaman Login
+│   ├── tables.php          # Manajemen Laporan
+│   ├── export.php          # Halaman Ekspor Data
+│   ├── auth.php            # Middleware sesi login
+│   ├── logout.php          # Script logout
+│   └── database.php        # Koneksi DB Admin
+│
+├── css/                    # MODUL PENGGUNA (PUBLIC)
+│   ├── style.css           # Styling utama antarmuka user
+│   └── ...
+├── images/                 # Aset Gambar Utama (Logo, Banner, Avatar)
+├── js/                     # Script frontend user
+├── private/                # Logika Backend
+│   ├── captcha.php         # Generator gambar captcha
+│   ├── validasi.php        # Proses validasi formulir
+│   └── database.php        # Koneksi DB User
+├── database/               # Backup Database SQL
+├── index.php               # Halaman Utama (Landing Page)
+├── lapor.php               # Halaman Form Pengaduan
+├── lihat.php               # Halaman Cek & Tracking Tiket
+└── README.md               # Dokumentasi Proyek
 ```
