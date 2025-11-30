@@ -24,6 +24,9 @@
             <a class="navbar-brand" href="index">
                 <img src="images/TeksLogoFix.png" alt="LaporPeh!">
             </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="fa fa-bars text-white fs-4"></span>
+            </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item"><a class="nav-link" href="index">Beranda</a></li>
