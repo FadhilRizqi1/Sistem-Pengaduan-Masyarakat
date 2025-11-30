@@ -43,6 +43,9 @@ if(isset($_POST['submit'])) {
             <a class="navbar-brand" href="index">
                 <img src="images/TeksLogoFix.png" alt="LaporPeh!">
             </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="fa fa-bars text-white fs-4"></span>
+            </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item"><a class="nav-link" href="index">Beranda</a></li>
@@ -53,7 +56,7 @@ if(isset($_POST['submit'])) {
         </div>
     </nav>
 
-    <div class="container pb-5" style="padding-top: 60px; min-height: 80vh;">
+    <div class="container" style="padding-top: 60px; min-height: 80vh;">
 
         <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
@@ -63,19 +66,20 @@ if(isset($_POST['submit'])) {
                 <h2 class="mb-3 fw-bold">Lacak Pengaduan</h2>
                 <p class="text-muted mb-4">Pantau progres laporan Anda dengan memasukkan nomor tiket.</p>
 
-                <div class="card-clean p-4 border-top border-4 border-accent text-start">
+                <div class="card-clean p-5 border-0 shadow-lg text-start" style="background-color: var(--primary);">
                     <form method="post">
-                        <label class="form-label fw-bold text-muted small">NOMOR TIKET</label>
-                        <div class="input-group input-group-lg mb-3">
-                            <span class="input-group-text bg-light border-end-0 text-muted">#</span>
-                            <input type="text" class="form-control bg-light border-start-0" name="nomor"
+                        <label class="form-label fw-bold text-white-50 small">NOMOR TIKET</label>
+                        <div class="input-group input-group-lg mb-4">
+                            <span class="input-group-text border-0 text-primary fw-bold bg-white">#</span>
+                            <input type="text" class="form-control border-0 text-primary fw-bold" name="nomor"
                                 placeholder="Contoh: 105" required>
                         </div>
                         <div class="d-grid">
-                            <button class="btn btn-primary-custom" type="submit" name="submit">Cek Status
-                                Sekarang</button>
+                            <button class="btn btn-accent-custom shadow" type="submit" name="submit">
+                                <i class="fa fa-search me-2"></i> Cek Status Sekarang
+                            </button>
                         </div>
-                        <p class="text-danger mt-2 text-start small"><?= @$nomorError ?></p>
+                        <p class="text-warning mt-2 text-start small fw-bold"><?= @$nomorError ?></p>
                     </form>
                 </div>
 
@@ -84,8 +88,7 @@ if(isset($_POST['submit'])) {
                     <i class="fa fa-info-circle text-primary fs-4 me-3"></i>
                     <div class="small text-muted">
                         <strong>Lupa Nomor Tiket?</strong><br>
-                        Hubungi admin melalui email <span class="text-primary fw-bold">help@laporpeh.id</span> dengan
-                        menyertakan nama pelapor.
+                        Hubungi admin melalui email <span class="text-primary fw-bold">help@laporpeh.id</span>.
                     </div>
                 </div>
             </div>
