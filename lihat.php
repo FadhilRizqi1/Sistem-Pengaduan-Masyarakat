@@ -49,8 +49,12 @@ if(isset($_POST['submit'])) {
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item"><a class="nav-link" href="index">Beranda</a></li>
-                    <li class="nav-item"><a class="nav-link" href="lapor">Buat Laporan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tentang">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="feed">Semua Laporan</a></li>
                     <li class="nav-item"><a class="nav-link active" href="lihat">Cek Status</a></li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a href="lapor" class="btn btn-nav-cta">Buat Laporan</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -60,32 +64,36 @@ if(isset($_POST['submit'])) {
 
         <div class="row justify-content-center">
             <div class="col-lg-8 text-center">
-                <div class="d-inline-block p-3 rounded-circle bg-white shadow-sm mb-3 text-primary">
+                <div
+                    class="d-inline-block p-4 rounded-circle bg-white shadow-sm mb-4 text-primary animate__animated animate__bounceIn">
                     <i class="fa fa-search fa-2x"></i>
                 </div>
-                <h2 class="mb-3 fw-bold">Lacak Pengaduan</h2>
-                <p class="text-muted mb-4">Pantau progres laporan Anda dengan memasukkan nomor tiket.</p>
+                <h2 class="mb-3 fw-bold animate__animated animate__fadeInUp">Lacak Pengaduan</h2>
+                <p class="text-muted mb-4 animate__animated animate__fadeInUp">Pantau progres laporan Anda dengan
+                    memasukkan nomor tiket.</p>
 
-                <div class="card-clean p-5 border-0 shadow-lg text-start" style="background-color: var(--primary);">
+                <div class="card-clean p-5 border-0 shadow-lg text-start animate__animated animate__fadeInUp delay-1s"
+                    style="background: var(--primary); border-radius: 20px;">
                     <form method="post">
-                        <label class="form-label fw-bold text-white-50 small">NOMOR TIKET</label>
+                        <label class="form-label fw-bold text-white-50 small" style="letter-spacing: 1px;">NOMOR
+                            TIKET</label>
                         <div class="input-group input-group-lg mb-4">
-                            <span class="input-group-text border-0 text-primary fw-bold bg-white">#</span>
+                            <span class="input-group-text border-0 text-primary fw-bold bg-white ps-4">#</span>
                             <input type="text" class="form-control border-0 text-primary fw-bold" name="nomor"
-                                placeholder="Contoh: 105" required>
+                                placeholder="Contoh: 105" required style="box-shadow: none;">
                         </div>
                         <div class="d-grid">
-                            <button class="btn btn-accent-custom shadow" type="submit" name="submit">
+                            <button class="btn btn-gold-custom shadow" type="submit" name="submit">
                                 <i class="fa fa-search me-2"></i> Cek Status Sekarang
                             </button>
                         </div>
-                        <p class="text-warning mt-2 text-start small fw-bold"><?= @$nomorError ?></p>
+                        <p class="text-warning mt-3 text-start small fw-bold mb-0"><?= @$nomorError ?></p>
                     </form>
                 </div>
 
                 <div
-                    class="mt-4 alert alert-light border border-secondary border-opacity-25 d-inline-flex align-items-center text-start p-3">
-                    <i class="fa fa-info-circle text-primary fs-4 me-3"></i>
+                    class="mt-4 p-3 rounded-3 bg-white border border-secondary border-opacity-10 d-inline-flex align-items-center text-start shadow-sm animate__animated animate__fadeIn">
+                    <i class="fa fa-info-circle text-primary fs-3 me-3"></i>
                     <div class="small text-muted">
                         <strong>Lupa Nomor Tiket?</strong><br>
                         Hubungi admin melalui email <span class="text-primary fw-bold">help@laporpeh.id</span>.
@@ -93,6 +101,7 @@ if(isset($_POST['submit'])) {
                 </div>
             </div>
         </div>
+        <div class="mt-5"></div>
 
         <?php if (isset($found) && $found) { foreach ($statement as $key) { 
             $tanggal = date('d F Y, H:i', strtotime($key['tanggal']));
@@ -101,22 +110,30 @@ if(isset($_POST['submit'])) {
             <div class="col-lg-8">
                 <div class="card-clean border-0 shadow-lg">
                     <div class="d-flex justify-content-between align-items-center mb-4 pb-3 border-bottom">
-                        <div>
-                            <span class="text-muted small d-block mb-1">TIKET PENGADUAN</span>
-                            <h4 class="mb-0 text-primary fw-bold">#<?php echo htmlspecialchars($key['id']); ?></h4>
+                        <div class="d-flex align-items-center">
+                            <div class="bg-primary bg-opacity-10 p-3 rounded-circle me-3 text-primary">
+                                <i class="fa fa-ticket-alt fs-4"></i>
+                            </div>
+                            <div>
+                                <span class="text-muted small d-block mb-1 text-uppercase fw-bold">TIKET
+                                    PENGADUAN</span>
+                                <h4 class="mb-0 text-primary fw-bold">#<?php echo htmlspecialchars($key['id']); ?></h4>
+                            </div>
                         </div>
-                        <span class="badge bg-success rounded-pill px-3 py-2 fs-6">Terdaftar</span>
+                        <span class="badge bg-success rounded-pill px-4 py-2 fs-6 shadow-sm"><i
+                                class="fa fa-check me-1"></i> Terdaftar</span>
                     </div>
 
                     <div class="row g-4">
                         <div class="col-12">
                             <h6 class="text-uppercase text-muted small fw-bold mb-3"><i
                                     class="fa fa-user-circle me-2"></i>Detail Laporan</h6>
-                            <div class="bg-light p-4 rounded-3 border">
-                                <div class="d-flex justify-content-between mb-3">
+                            <div class="bg-light p-4 rounded-4 border shadow-sm">
+                                <div class="d-flex justify-content-between mb-3 align-items-center flex-wrap gap-2">
                                     <h5 class="fw-bold text-dark mb-0"><?php echo htmlspecialchars($key['nama']); ?>
                                     </h5>
-                                    <span class="badge bg-white text-muted border"><i class="fa fa-clock me-1"></i>
+                                    <span class="badge bg-white text-muted border px-3 py-2 rounded-pill"><i
+                                            class="fa fa-clock me-1 text-warning"></i>
                                         <?php echo $tanggal; ?></span>
                                 </div>
                                 <p class="mb-0 text-dark" style="line-height: 1.8; font-size: 1.05rem;">
@@ -132,17 +149,19 @@ if(isset($_POST['submit'])) {
                                 $tgl_respon = date('d F Y, H:i', strtotime($key_resp['tanggal_tanggapan']));
                             ?>
                             <div
-                                class="p-4 rounded-3 border border-start-0 border-end-0 border-top-0 border-bottom-0 border-start border-4 border-warning bg-white shadow-sm">
-                                <div class="d-flex align-items-center mb-2 text-success small fw-bold">
-                                    <i class="fa fa-check-circle me-2 fs-5"></i>
+                                class="p-4 rounded-4 border border-start-0 border-end-0 border-top-0 border-bottom-0 border-start border-4 border-warning bg-warning bg-opacity-10 shadow-sm">
+                                <div class="d-flex align-items-center mb-2 text-dark small fw-bold">
+                                    <span class="bg-warning text-dark px-2 py-1 rounded me-2"><i
+                                            class="fa fa-user-shield"></i> Admin</span>
                                     <span>Ditanggapi pada <?php echo $tgl_respon; ?></span>
                                 </div>
                                 <p class="mb-0 text-dark lead fs-6">
                                     <?php echo htmlspecialchars($key_resp['isi_tanggapan']); ?></p>
                             </div>
                             <?php } } else { ?>
-                            <div class="alert alert-secondary border-0 d-flex align-items-center p-4 rounded-3">
-                                <div class="bg-white p-2 rounded-circle text-secondary me-3 shadow-sm">
+                            <div
+                                class="alert alert-light border-dashed border-2 d-flex align-items-center p-4 rounded-4 bg-white">
+                                <div class="bg-secondary bg-opacity-10 p-3 rounded-circle text-secondary me-3">
                                     <i class="fa fa-hourglass-half fs-4"></i>
                                 </div>
                                 <div>
@@ -164,15 +183,16 @@ if(isset($_POST['submit'])) {
     <?php if(isset($notFound)) { ?>
     <div class="modal fade" id="failedmodal" tabindex="-1">
         <div class="modal-dialog modal-dialog-centered modal-sm">
-            <div class="modal-content text-center p-4 border-0 rounded-4">
+            <div class="modal-content text-center p-4 border-0 rounded-4 shadow-lg">
                 <div class="modal-body">
-                    <div class="mb-3 text-danger bg-danger bg-opacity-10 p-3 rounded-circle d-inline-block">
+                    <div
+                        class="mb-3 text-danger bg-danger bg-opacity-10 p-3 rounded-circle d-inline-block animate__animated animate__tada">
                         <i class="fa fa-times-circle fa-3x"></i>
                     </div>
                     <h5 class="fw-bold mb-2">Tidak Ditemukan</h5>
                     <p class="text-muted small mb-4">Nomor tiket <strong>#<?php echo $_POST['nomor']; ?></strong> tidak
                         terdaftar di sistem kami.</p>
-                    <button type="button" class="btn btn-secondary btn-sm px-4 rounded-pill w-100"
+                    <button type="button" class="btn btn-secondary btn-sm px-4 rounded-pill w-100 fw-bold"
                         data-bs-dismiss="modal">Tutup</button>
                 </div>
             </div>
@@ -190,20 +210,24 @@ if(isset($_POST['submit'])) {
             <div class="row gy-4">
                 <div class="col-lg-5">
                     <img src="images/TeksLogoFix.png" alt="Logo Footer" class="footer-logo-img">
-                    <p class="footer-desc pe-lg-5">Layanan aspirasi masyarakat.</p>
+                    <p class="footer-desc pe-lg-5 text-white-50">Layanan aspirasi dan pengaduan masyarakat Palembang
+                        yang terpercaya, transparan, dan akuntabel.</p>
                 </div>
                 <div class="col-lg-3 offset-lg-1 footer-links">
-                    <h5 class="footer-heading">Menu</h5>
+                    <h5 class="footer-heading">Navigasi</h5>
                     <a href="index">Beranda</a>
-                    <a href="lapor">Buat Laporan</a>
+                    <a href="tentang">Tentang Kami</a>
+                    <a href="feed">Semua Laporan</a>
                     <a href="lihat">Cek Status</a>
                 </div>
                 <div class="col-lg-3 footer-links">
-                    <h5 class="footer-heading">Kontak</h5>
-                    <a href="#">help@laporpeh.id</a>
+                    <h5 class="footer-heading">Hubungi Kami</h5>
+                    <a href="#"><i class="fa fa-map-marker-alt me-2 text-warning"></i> Jl. Merdeka No. 1</a>
+                    <a href="#"><i class="fa fa-envelope me-2 text-warning"></i> help@laporpeh.id</a>
+                    <a href="#"><i class="fa fa-phone me-2 text-warning"></i> (0711) 123456</a>
                 </div>
             </div>
-            <div class="border-top border-secondary border-opacity-25 mt-4 pt-4 text-center text-white-50 small">
+            <div class="border-top border-white border-opacity-10 mt-5 pt-4 text-center text-white-50 small">
                 &copy; 2025 LaporPeh! All Rights Reserved.
             </div>
         </div>
