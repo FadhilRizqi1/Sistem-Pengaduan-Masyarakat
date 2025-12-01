@@ -15,6 +15,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/animate.min.css">
 </head>
 
 <body>
@@ -30,8 +31,12 @@
             <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
                 <ul class="navbar-nav align-items-center">
                     <li class="nav-item"><a class="nav-link" href="index">Beranda</a></li>
-                    <li class="nav-item"><a class="nav-link active" href="lapor">Buat Laporan</a></li>
+                    <li class="nav-item"><a class="nav-link" href="tentang">Tentang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="feed">Semua Laporan</a></li>
                     <li class="nav-item"><a class="nav-link" href="lihat">Cek Status</a></li>
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+                        <a href="lapor" class="btn btn-nav-cta">Buat Laporan</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -41,43 +46,64 @@
         <div class="row justify-content-center">
 
             <div class="col-lg-8">
-                <div class="text-center mb-4">
-                    <h2 class="fw-bold mb-2">Buat Laporan Baru</h2>
-                    <p class="text-muted">Isi formulir di bawah ini dengan data yang valid.</p>
+                <div class="text-center mb-5 animate__animated animate__fadeInDown">
+                    <span class="badge bg-primary bg-opacity-10 text-primary px-3 py-2 rounded-pill mb-3 fw-bold">FORM
+                        PENGADUAN</span>
+                    <h2 class="fw-bold mb-2">Sampaikan Laporan Anda</h2>
+                    <p class="text-muted">Isi formulir di bawah ini dengan data yang valid dan jelas.</p>
                 </div>
 
-                <div class="card-clean border-top border-4 border-primary">
+                <div
+                    class="card-clean border-top border-4 border-primary shadow-lg animate__animated animate__fadeInUp">
                     <form method="post" action="private/validasi.php">
-                        <div class="bg-light p-3 rounded mb-4 border d-flex justify-content-between align-items-center">
-                            <div>
-                                <small class="text-muted fw-bold d-block">NOMOR TIKET ANDA</small>
-                                <span class="text-muted small">Simpan nomor ini untuk pengecekan.</span>
+
+                        <div
+                            class="bg-primary bg-opacity-10 p-4 rounded-3 mb-4 border border-primary border-opacity-25 d-flex justify-content-between align-items-center flex-wrap gap-3">
+                            <div class="d-flex align-items-center">
+                                <div class="bg-white p-3 rounded-circle text-primary me-3 shadow-sm">
+                                    <i class="fa fa-ticket-alt fs-4"></i>
+                                </div>
+                                <div>
+                                    <small class="text-primary fw-bold d-block text-uppercase ls-1">Nomor Tiket
+                                        Anda</small>
+                                    <span class="text-muted small">Harap simpan nomor ini untuk pengecekan
+                                        status.</span>
+                                </div>
                             </div>
-                            <span class="text-primary fs-3 fw-bold">#<?php echo $max_id; ?></span>
-                            <input type="hidden" name="nomor" value="<?php echo $max_id; ?>">
+                            <div class="bg-white px-4 py-2 rounded-pill shadow-sm border">
+                                <span class="text-primary fs-3 fw-bold">#<?php echo $max_id; ?></span>
+                                <input type="hidden" name="nomor" value="<?php echo $max_id; ?>">
+                            </div>
                         </div>
 
-                        <div class="row g-3">
+                        <div class="row g-4">
+                            <div class="col-12">
+                                <h6 class="text-uppercase text-muted fw-bold small mb-3 border-bottom pb-2">Identitas
+                                    Pelapor</h6>
+                            </div>
                             <div class="col-md-6">
-                                <label class="form-label">Nama Lengkap</label>
+                                <label class="form-label fw-semibold">Nama Lengkap</label>
                                 <input type="text" class="form-control" name="nama" value="<?= @$_GET['nama'] ?>"
-                                    required>
-                                <small class="text-danger"><?= @$_GET['namaError'] ?></small>
+                                    placeholder="Masukkan nama sesuai KTP" required>
+                                <small class="text-danger fw-bold ms-1"><?= @$_GET['namaError'] ?></small>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label">Email</label>
+                                <label class="form-label fw-semibold">Email</label>
                                 <input type="email" class="form-control" name="email" value="<?= @$_GET['email'] ?>"
-                                    required>
-                                <small class="text-danger"><?= @$_GET['emailError'] ?></small>
+                                    placeholder="contoh@email.com" required>
+                                <small class="text-danger fw-bold ms-1"><?= @$_GET['emailError'] ?></small>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label">No. Handphone/WA</label>
-                                <input type="text" class="form-control" name="telpon" value="<?= @$_GET['telpon'] ?>"
-                                    required>
-                                <small class="text-danger"><?= @$_GET['telponError'] ?></small>
+                                <label class="form-label fw-semibold">No. Handphone/WA</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light text-muted">+62</span>
+                                    <input type="text" class="form-control" name="telpon"
+                                        value="<?= @$_GET['telpon'] ?>" placeholder="812345678" required>
+                                </div>
+                                <small class="text-danger fw-bold ms-1"><?= @$_GET['telponError'] ?></small>
                             </div>
                             <div class="col-md-6">
-                                <label class="form-label">Kategori Laporan</label>
+                                <label class="form-label fw-semibold">Kategori Laporan</label>
                                 <select class="form-select" name="tujuan">
                                     <option value="1">Administrasi Kependudukan</option>
                                     <option value="2">Fasilitas Umum & Jalan</option>
@@ -85,41 +111,57 @@
                                     <option value="4">Lainnya</option>
                                 </select>
                             </div>
+
+                            <div class="col-12 mt-4">
+                                <h6 class="text-uppercase text-muted fw-bold small mb-3 border-bottom pb-2">Detail
+                                    Kejadian</h6>
+                            </div>
+
                             <div class="col-12">
-                                <label class="form-label">Lokasi Kejadian</label>
-                                <input type="text" class="form-control" name="alamat"
-                                    placeholder="Jalan, Kecamatan, Patokan..." value="<?= @$_GET['alamat'] ?>" required>
-                                <small class="text-danger"><?= @$_GET['alamatError'] ?></small>
+                                <label class="form-label fw-semibold">Lokasi Kejadian</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-white"><i
+                                            class="fa fa-map-marker-alt text-danger"></i></span>
+                                    <input type="text" class="form-control" name="alamat"
+                                        placeholder="Nama Jalan, Desa/Kelurahan, Patokan..."
+                                        value="<?= @$_GET['alamat'] ?>" required>
+                                </div>
+                                <small class="text-danger fw-bold ms-1"><?= @$_GET['alamatError'] ?></small>
                             </div>
                             <div class="col-12">
-                                <label class="form-label">Isi Laporan</label>
-                                <textarea class="form-control" name="pengaduan" rows="5"
-                                    placeholder="Jelaskan detail masalah..."
+                                <label class="form-label fw-semibold">Isi Laporan</label>
+                                <textarea class="form-control" name="pengaduan" rows="6"
+                                    placeholder="Jelaskan detail masalah, waktu kejadian, dan pihak yang terlibat..."
                                     required><?= @$_GET['pengaduan'] ?></textarea>
-                                <small class="text-danger"><?= @$_GET['pengaduanError'] ?></small>
+                                <small class="text-danger fw-bold ms-1"><?= @$_GET['pengaduanError'] ?></small>
                             </div>
 
                             <div class="col-12 mt-4">
-                                <label class="form-label">Keamanan</label>
-                                <div class="d-flex align-items-center bg-light p-2 rounded border">
-                                    <img src="private/captcha.php" alt="Captcha" class="rounded me-3 border bg-white">
-                                    <input type="text" class="form-control border-0 bg-transparent" name="captcha"
-                                        placeholder="Ketik kode captcha" required>
+                                <div class="p-3 bg-light rounded border">
+                                    <label class="form-label fw-bold mb-2">Verifikasi Keamanan</label>
+                                    <div class="d-flex align-items-center flex-wrap gap-3">
+                                        <div class="bg-white p-2 border rounded shadow-sm">
+                                            <img src="private/captcha.php" alt="Captcha" class="rounded">
+                                        </div>
+                                        <input type="text" class="form-control border bg-white" name="captcha"
+                                            placeholder="Ketik kode captcha di sini" required style="max-width: 250px;">
+                                    </div>
+                                    <small class="text-danger fw-bold ms-1"><?= @$_GET['captchaError'] ?></small>
                                 </div>
-                                <small class="text-danger"><?= @$_GET['captchaError'] ?></small>
                             </div>
                         </div>
 
-                        <div class="d-grid mt-4">
-                            <button type="submit" name="submit" class="btn btn-primary-custom btn-lg">
-                                Kirim Laporan Sekarang
+                        <div class="d-grid mt-5">
+                            <button type="submit" name="submit" class="btn btn-primary-custom btn-lg py-3 shadow">
+                                <i class="fa fa-paper-plane me-2"></i> Kirim Laporan Sekarang
                             </button>
                         </div>
                     </form>
                 </div>
 
-                <div class="text-center mt-4 text-muted small">
-                    <i class="fa fa-lock me-1"></i> Data pelapor dijamin kerahasiaannya.
+                <div class="text-center mt-4 text-muted small d-flex justify-content-center align-items-center">
+                    <i class="fa fa-lock me-2 text-success"></i> Data pelapor dijamin kerahasiaannya dan dilindungi
+                    undang-undang.
                 </div>
             </div>
         </div>
@@ -130,20 +172,24 @@
             <div class="row gy-4">
                 <div class="col-lg-5">
                     <img src="images/TeksLogoFix.png" alt="Logo Footer" class="footer-logo-img">
-                    <p class="footer-desc pe-lg-5">Layanan aspirasi masyarakat.</p>
+                    <p class="footer-desc pe-lg-5 text-white-50">Layanan aspirasi dan pengaduan masyarakat Palembang
+                        yang terpercaya, transparan, dan akuntabel.</p>
                 </div>
                 <div class="col-lg-3 offset-lg-1 footer-links">
-                    <h5 class="footer-heading">Menu</h5>
+                    <h5 class="footer-heading">Navigasi</h5>
                     <a href="index">Beranda</a>
-                    <a href="lapor">Buat Laporan</a>
+                    <a href="tentang">Tentang Kami</a>
+                    <a href="feed">Semua Laporan</a>
                     <a href="lihat">Cek Status</a>
                 </div>
                 <div class="col-lg-3 footer-links">
-                    <h5 class="footer-heading">Kontak</h5>
-                    <a href="#">help@laporpeh.id</a>
+                    <h5 class="footer-heading">Hubungi Kami</h5>
+                    <a href="#"><i class="fa fa-map-marker-alt me-2 text-warning"></i> Jl. Merdeka No. 1</a>
+                    <a href="#"><i class="fa fa-envelope me-2 text-warning"></i> help@laporpeh.id</a>
+                    <a href="#"><i class="fa fa-phone me-2 text-warning"></i> (0711) 123456</a>
                 </div>
             </div>
-            <div class="border-top border-secondary border-opacity-25 mt-4 pt-4 text-center text-white-50 small">
+            <div class="border-top border-white border-opacity-10 mt-5 pt-4 text-center text-white-50 small">
                 &copy; 2025 LaporPeh! All Rights Reserved.
             </div>
         </div>
