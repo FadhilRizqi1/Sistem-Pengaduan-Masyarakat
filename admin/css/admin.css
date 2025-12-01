@@ -12,8 +12,8 @@
   --sidebar-width: 250px;
   --navbar-height: 70px;
   --radius-card: 12px;
-  --shadow-soft: 0 5px 20px rgba(0, 0, 0, 0.06);
-  --shadow-hover: 0 10px 30px rgba(22, 52, 122, 0.15);
+  --shadow-soft: 0 4px 20px rgba(0, 0, 0, 0.05);
+  --shadow-nav: 0 4px 20px rgba(0, 0, 0, 0.25);
 }
 
 html,
@@ -27,15 +27,13 @@ body {
 
 #mainNav.navbar {
   background-color: var(--primary) !important;
-  min-height: var(--navbar-height);
-  height: auto;
-  padding: 0.5rem 1rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  z-index: 1030;
+  height: var(--navbar-height);
+  padding: 0 1rem;
+  box-shadow: var(--shadow-nav) !important;
+  z-index: 1050;
   position: fixed;
   top: 0;
-  right: 0;
-  left: 0;
+  width: 100%;
 }
 
 .navbar-brand {
@@ -43,6 +41,7 @@ body {
   margin: 0;
   display: flex;
   align-items: center;
+  height: 100%;
 }
 
 .navbar-brand img {
@@ -52,6 +51,7 @@ body {
   background: white;
   padding: 3px;
   border-radius: 6px;
+  margin-right: 10px;
   transition: transform 0.3s;
 }
 
@@ -76,6 +76,7 @@ body {
     display: flex;
     flex-direction: column;
     border-right: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 1040;
   }
 
   .content-wrapper {
@@ -92,7 +93,6 @@ body {
   .content-wrapper {
     padding: 1rem;
     padding-top: calc(var(--navbar-height) + 1rem);
-    margin-left: 0;
   }
 
   #mainNav .navbar-collapse {
@@ -101,24 +101,16 @@ body {
     top: 100%;
     left: 0;
     right: 0;
+    z-index: 1040;
     padding: 1rem;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-    border-radius: 0 0 15px 15px;
-    max-height: 80vh;
-    overflow-y: auto;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
   }
 
   #mainNav .navbar-collapse .navbar-sidenav {
     display: flex;
     flex-direction: column;
-    width: 100%;
-    margin-bottom: 1rem;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    padding-bottom: 1rem;
-  }
-
-  .navbar-sidenav .nav-item {
-    width: 100%;
   }
 }
 
@@ -127,16 +119,10 @@ body {
   font-weight: 500;
   padding: 12px 20px;
   transition: all 0.3s;
-  margin: 4px 0;
+  margin: 4px 15px;
   border-radius: 8px;
   display: flex;
   align-items: center;
-}
-
-@media (min-width: 992px) {
-  .navbar-dark .navbar-nav .nav-link {
-    margin: 4px 15px;
-  }
 }
 
 .navbar-dark .navbar-nav .nav-link i {
@@ -349,7 +335,6 @@ body {
   width: 100%;
   max-width: 320px;
 }
-
 .login-brand img {
   height: 60px;
   margin-bottom: 20px;
@@ -376,14 +361,4 @@ div.dataTables_wrapper div.dataTables_length select.form-control {
   height: auto !important;
   color: #333 !important;
   border: 1px solid #dce4ec !important;
-}
-
-footer.sticky-footer {
-  background: white;
-  padding: 20px 0;
-  border-top: 1px solid #eee;
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  width: 100%;
-  margin-top: auto;
 }
