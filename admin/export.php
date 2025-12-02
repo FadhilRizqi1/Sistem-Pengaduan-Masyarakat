@@ -19,7 +19,22 @@
 </head>
 
 <body class="fixed-nav" id="page-top">
+    <div id="preloader">
+        <div class="loader-container">
+            <img src="images/TeksLogoFix.png" alt="LaporPeh!" class="loader-logo">
+            <div class="loader-spinner"></div>
+            <p class="text-muted small mt-3 fw-bold">Memuat...</p>
+        </div>
+    </div>
 
+    <script>
+    window.addEventListener('load', function() {
+        const preloader = document.getElementById('preloader');
+        setTimeout(() => {
+            preloader.classList.add('hide');
+        }, 500);
+    });
+    </script>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <a class="navbar-brand" href="index">
             <img src="../images/TeksLogoFix.png" alt="Logo">
@@ -67,35 +82,62 @@
                 <div class="card-body">
                     <div class="alert alert-info border-left-primary shadow-sm mb-4">
                         <i class="fa fa-info-circle me-2"></i> Gunakan tombol di bawah untuk mengunduh laporan
-                        (Excel/PDF/Print).
+                        (Excel/PDF/Print). Data yang diekspor mencakup detail lengkap laporan.
                     </div>
                     <div class="table-responsive">
-                        <table class="table table-bordered" id="exportTable" width="100%" cellspacing="0">
-                            <thead>
+                        <table class="table table-bordered table-striped" id="exportTable" width="100%" cellspacing="0">
+                            <thead class="thead-light">
                                 <tr>
+                                    <th>ID Tiket</th>
                                     <th>Pelapor</th>
+                                    <th>Kontak (HP)</th>
+                                    <th>Lokasi</th>
                                     <th>Isi Laporan</th>
-                                    <th>Tanggal</th>
+                                    <th>Tujuan Divisi</th>
+                                    <th>Tanggal Masuk</th>
                                     <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <?php
+                                // Perbaikan Query: Menggunakan JOIN ke tabel divisi untuk mengambil nama divisi
                                 if ($id_admin > 0) {
-                                    $stmt = $db->prepare("SELECT * FROM laporan WHERE tujuan = ? ORDER BY id DESC");
+                                    $stmt = $db->prepare("SELECT laporan.*, divisi.nama_divisi 
+                                                          FROM laporan 
+                                                          LEFT JOIN divisi ON laporan.tujuan = divisi.id_divisi 
+                                                          WHERE laporan.tujuan = ? 
+                                                          ORDER BY laporan.id DESC");
                                     $stmt->execute([$id_admin]);
                                 } else {
-                                    $stmt = $db->prepare("SELECT * FROM laporan ORDER BY id DESC");
+                                    $stmt = $db->prepare("SELECT laporan.*, divisi.nama_divisi 
+                                                          FROM laporan 
+                                                          LEFT JOIN divisi ON laporan.tujuan = divisi.id_divisi 
+                                                          ORDER BY laporan.id DESC");
                                     $stmt->execute();
                                 }
+
                                 while($row = $stmt->fetch()) {
-                                    $status = $row['status'] == "Ditanggapi" ? "Selesai" : "Menunggu";
+                                    // Logika Status
+                                    if($row['status'] == 'Ditanggapi') {
+                                        $statusText = "Selesai";
+                                    } elseif($row['status'] == 'Proses') { // Asumsi ada status proses
+                                        $statusText = "Diproses";
+                                    } else {
+                                        $statusText = "Menunggu";
+                                    }
+                                    
+                                    // Format Tanggal
+                                    $tanggalIndo = date('d/m/Y H:i', strtotime($row['tanggal']));
                                 ?>
                                 <tr>
-                                    <td><?php echo $row['nama']; ?></td>
-                                    <td><?php echo $row['isi']; ?></td>
-                                    <td><?php echo $row['tanggal']; ?></td>
-                                    <td><?php echo $status; ?></td>
+                                    <td>#<?php echo $row['id']; ?></td>
+                                    <td><?php echo htmlspecialchars($row['nama']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['telpon']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['alamat']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['isi']); ?></td>
+                                    <td><?php echo htmlspecialchars($row['nama_divisi']); ?></td>
+                                    <td><?php echo $tanggalIndo; ?></td>
+                                    <td><?php echo $statusText; ?></td>
                                 </tr>
                                 <?php } ?>
                             </tbody>
@@ -136,22 +178,36 @@
         $(document).ready(function() {
             $('#exportTable').DataTable({
                 dom: 'Bfrtip',
+                // Mengatur kolom mana yang akan di export (opsional, default semua)
                 buttons: [{
                         extend: 'excel',
                         className: 'btn btn-success btn-sm',
-                        text: '<i class="fa fa-file-excel-o"></i> Excel'
+                        text: '<i class="fa fa-file-excel-o"></i> Excel',
+                        title: 'Data Laporan Masyarakat',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     },
                     {
                         extend: 'pdf',
                         className: 'btn btn-danger btn-sm',
-                        text: '<i class="fa fa-file-pdf-o"></i> PDF'
+                        text: '<i class="fa fa-file-pdf-o"></i> PDF',
+                        orientation: 'landscape', // Landscape agar muat banyak kolom
+                        pageSize: 'A4',
+                        title: 'Data Laporan Masyarakat',
+                        exportOptions: {
+                            columns: ':visible'
+                        }
                     },
                     {
                         extend: 'print',
                         className: 'btn btn-info btn-sm',
-                        text: '<i class="fa fa-print"></i> Print'
+                        text: '<i class="fa fa-print"></i> Print',
+                        title: 'Data Laporan Masyarakat'
                     }
-                ]
+                ],
+                // Supaya tabel responsif di tampilan mobile admin
+                scrollX: true
             });
         });
         </script>

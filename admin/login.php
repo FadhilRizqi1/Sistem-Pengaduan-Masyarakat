@@ -30,6 +30,22 @@
 </head>
 
 <body class="bg-login">
+    <div id="preloader">
+        <div class="loader-container">
+            <img src="images/TeksLogoFix.png" alt="LaporPeh!" class="loader-logo">
+            <div class="loader-spinner"></div>
+            <p class="text-muted small mt-3 fw-bold">Memuat...</p>
+        </div>
+    </div>
+
+    <script>
+    window.addEventListener('load', function() {
+        const preloader = document.getElementById('preloader');
+        setTimeout(() => {
+            preloader.classList.add('hide');
+        }, 500);
+    });
+    </script>
     <div class="login-container">
         <div class="login-left">
             <img src="../images/TeksLogoFix.png"

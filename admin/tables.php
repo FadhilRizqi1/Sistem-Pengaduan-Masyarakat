@@ -57,7 +57,22 @@
 </head>
 
 <body class="fixed-nav" id="page-top">
+    <div id="preloader">
+        <div class="loader-container">
+            <img src="images/TeksLogoFix.png" alt="LaporPeh!" class="loader-logo">
+            <div class="loader-spinner"></div>
+            <p class="text-muted small mt-3 fw-bold">Memuat...</p>
+        </div>
+    </div>
 
+    <script>
+    window.addEventListener('load', function() {
+        const preloader = document.getElementById('preloader');
+        setTimeout(() => {
+            preloader.classList.add('hide');
+        }, 500);
+    });
+    </script>
     <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
         <a class="navbar-brand" href="index">
             <img src="../images/TeksLogoFix.png" alt="Logo">
