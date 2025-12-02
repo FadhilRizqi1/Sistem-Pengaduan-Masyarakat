@@ -43,7 +43,7 @@
 <body class="fixed-nav" id="page-top">
     <div id="preloader">
         <div class="loader-container">
-            <img src="images/TeksLogoFix.png" alt="LaporPeh!" class="loader-logo">
+            <img src="../images/TeksLogoFix.png" alt="LaporPeh!" class="loader-logo">
             <div class="loader-spinner"></div>
             <p class="text-muted small mt-3 fw-bold">Memuat...</p>
         </div>
