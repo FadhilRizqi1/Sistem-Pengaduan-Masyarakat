@@ -3,7 +3,6 @@
     require_once("auth.php");
     logged_admin();
     
-    // Ambil ID Admin jika ada
     $id_admin = 0;
     if(isset($_SESSION['admin'])) {
         $stmt_admin = $db->prepare("SELECT id_admin FROM admin WHERE username = :username");
@@ -11,8 +10,7 @@
         $row_admin = $stmt_admin->fetch(PDO::FETCH_ASSOC);
         if($row_admin) $id_admin = $row_admin['id_admin'];
     }
-
-    // Logic Hapus & Balas (Tidak Berubah)
+       
     if (isset($_POST['HapusTanggapan'])) {
         $id = $_POST['id_tanggapan']; $id_laporan = $_POST['id_hapus_tanggapan_laporan'];
         $db->prepare("DELETE FROM tanggapan WHERE id_tanggapan = ?")->execute([$id]);
@@ -30,13 +28,10 @@
         $db->prepare("UPDATE laporan SET status='Ditanggapi' WHERE id=?")->execute([$id]);
     }
 
-    // PERBAIKAN QUERY DISINI (Gunakan LEFT JOIN)
     if ($id_admin > 0) {
-        // Jika Admin Divisi (Hanya lihat divisi sendiri)
         $stmt = $db->prepare("SELECT * FROM laporan LEFT JOIN divisi ON laporan.tujuan = divisi.id_divisi WHERE laporan.tujuan = ? ORDER BY laporan.id DESC");
         $stmt->execute([$id_admin]);
     } else {
-        // Jika Super Admin (Lihat semua + Nama Divisi)
         $stmt = $db->prepare("SELECT * FROM laporan LEFT JOIN divisi ON laporan.tujuan = divisi.id_divisi ORDER BY laporan.id DESC");
         $stmt->execute();
     }
@@ -135,7 +130,6 @@
                                         $tanggal = date('d/m/Y', strtotime($key['tanggal']));
                                         $badge = ($key['status'] == "Ditanggapi") ? "<span class='badge badge-success px-2'>Selesai</span>" : "<span class='badge badge-warning text-white px-2'>Menunggu</span>";
                                         
-                                        // Nama Divisi sekarang akan muncul dengan benar
                                         $divisi_name = !empty($key['nama_divisi']) ? $key['nama_divisi'] : 'Umum';
                                 ?>
                                 <tr>

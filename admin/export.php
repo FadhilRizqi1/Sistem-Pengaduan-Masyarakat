@@ -100,7 +100,6 @@
                             </thead>
                             <tbody>
                                 <?php
-                                // Perbaikan Query: Menggunakan JOIN ke tabel divisi untuk mengambil nama divisi
                                 if ($id_admin > 0) {
                                     $stmt = $db->prepare("SELECT laporan.*, divisi.nama_divisi 
                                                           FROM laporan 
@@ -117,16 +116,14 @@
                                 }
 
                                 while($row = $stmt->fetch()) {
-                                    // Logika Status
                                     if($row['status'] == 'Ditanggapi') {
                                         $statusText = "Selesai";
-                                    } elseif($row['status'] == 'Proses') { // Asumsi ada status proses
+                                    } elseif($row['status'] == 'Proses') { 
                                         $statusText = "Diproses";
                                     } else {
                                         $statusText = "Menunggu";
                                     }
                                     
-                                    // Format Tanggal
                                     $tanggalIndo = date('d/m/Y H:i', strtotime($row['tanggal']));
                                 ?>
                                 <tr>
@@ -178,7 +175,6 @@
         $(document).ready(function() {
             $('#exportTable').DataTable({
                 dom: 'Bfrtip',
-                // Mengatur kolom mana yang akan di export (opsional, default semua)
                 buttons: [{
                         extend: 'excel',
                         className: 'btn btn-success btn-sm',
@@ -192,7 +188,8 @@
                         extend: 'pdf',
                         className: 'btn btn-danger btn-sm',
                         text: '<i class="fa fa-file-pdf-o"></i> PDF',
-                        orientation: 'landscape', // Landscape agar muat banyak kolom
+                        orientation: 'landscape',
+                        banyak kolom
                         pageSize: 'A4',
                         title: 'Data Laporan Masyarakat',
                         exportOptions: {
@@ -206,7 +203,6 @@
                         title: 'Data Laporan Masyarakat'
                     }
                 ],
-                // Supaya tabel responsif di tampilan mobile admin
                 scrollX: true
             });
         });
