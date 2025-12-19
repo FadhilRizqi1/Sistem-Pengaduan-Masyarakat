@@ -1,14 +1,7 @@
 <?php
-# @Author: Wahid Ari <wahidari>
-# @Date:   8 January, 5:05
-# @Copyright: (c) wahidari 2017
-?>
-
-<?php
 	session_start();
 	require_once("database.php");
 	header("Location: ../index?status=success");
-	// Atasi Undefined
 	$nama = $email = $telpon = $alamat = $pengaduan = $captcha = $is_valid = "";
 	$namaError = $emailError = $telponError = $alamatError = $pengaduanError = $captchaError = "";
 
@@ -43,7 +36,6 @@
         }
     }
 
-    // Fungsi Untuk Melakukan Pengecekan Dari Setiap Inputan Di Masing - masing Fungsi
     function validate_input() {
         global $nama , $email , $telpon , $alamat , $pengaduan , $captcha , $is_valid;
         cek_nama($nama);
@@ -53,78 +45,72 @@
 		cek_pengaduan($pengaduan);
         cek_captcha($captcha);
     }
-
-    // validasi nama
+    
     function cek_nama ($nama) {
         global $nama, $is_valid, $namaError;
         echo "cek_nama      : ", $nama      , "<br>";
-        if (!preg_match("/^[a-zA-Z ]*$/",$nama)) { // cek nama bukan huruf
+        if (!preg_match("/^[a-zA-Z ]*$/",$nama)) { 
             $namaError = "Nama Hanya Boleh Huruf dan Spasi";
             $is_valid = false;
-        } else { // jika nama valid kosongkan error
+        } else { 
             $namaError = "";
         }
     }
 
-    // validasi email
     function cek_email($email) {
         global $email, $is_valid, $emailError;
         echo "cek_email     : ", $email     , "<br>";
-        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { // cek format email
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) { 
             $emailError = "Email Tidak Valid";
             $is_valid = false;
-        } else { // jika email valid kosongkan eror
+        } else { 
             $emailError = "";
         }
     }
 
-    // validasi telpon
     function cek_telpon($telpon) {
         global $telpon, $telponError, $is_valid;
         echo "cek_telpon    : ", $telpon    , "<br>";
-        if (!preg_match("/^[0-9]*$/",$telpon)) { // cek telpon hanya boleh angka
+        if (!preg_match("/^[0-9]*$/",$telpon)) { 
             $telponError = "Telpon Hanya Boleh Angka";
             $is_valid = false;
-        } elseif (strlen($telpon) != 12) { // cek panjang telpon harus >= 6
+        } elseif (strlen($telpon) != 12) { 
             $telponError = "Panjang Telpon Harus 12 Digit";
             $is_valid = false;
-        } else { // jika telpon valid kosongkan error
+        } else {
             $telponError = "";
         }
     }
 
-    // validasi alamat
     function cek_alamat($alamat) {
         global $alamat, $is_valid, $alamatError;
         echo "cek_alamat    : ", $alamat    , "<br>";
-        if (!preg_match("/^[a-zA-Z0-9 ]*$/",$alamat)) { // cek fullname bukan huruf
+        if (!preg_match("/^[a-zA-Z0-9 ]*$/",$alamat)) { 
             $alamatError = "Alamat Hanya Boleh Huruf dan Angka";
             $is_valid = false;
-        } else { // jika fullname valid kosongkan error
+        } else {
             $alamatError = "";
         }
     }
 
-    // validasi pengaduan
     function cek_pengaduan($pengaduan) {
         global $pengaduan, $is_valid, $pengaduanError;
         echo "cek_pengaduan : ", $pengaduan , "<br>";
-        if (strlen($pengaduan) > 2048) { // cek fullname bukan huruf
+        if (strlen($pengaduan) > 2048) {
             $pengaduanError = "Isi Pengaduan Tidak Boleh Huruf Lebih Dari 2048 Karakter";
             $is_valid = false;
-        } else { // jika pengaduan valid kosongkan error
+        } else { 
             $pengaduanError = "";
         }
     }
 
-    // validasi captcha
     function cek_captcha($captcha) {
         global $captcha, $is_valid, $captchaError;
         echo "cek_captcha   : ", $captcha   , "<br>";
-        if ($captcha != $_SESSION['bilangan']) { // cek fullname bukan huruf
+        if ($captcha != $_SESSION['bilangan']) {
             $captchaError = "Captcha Salah atau Silahkan Reload Browser Anda";
             $is_valid = false;
-        } else { // jika pengaduan valid kosongkan error
+        } else { 
             $captchaError = "";
         }
     }
