@@ -84,6 +84,12 @@ Panel admin dirancang dengan tampilan profesional untuk mendukung efisiensi kerj
 | :------------: | :------------: |
 | ![Kelola Data](images/screenshot_tables.png)<br>_Pengelolaan data laporan dalam bentuk tabel dengan aksi cepat._ | ![Export Data](images/screenshot_export.png)<br>_Fitur ekspor laporan ke Excel atau PDF._ |
 
+### Detail & Balas Laporan
+
+| Detail Laporan | Balas Laporan |
+| :------------: | :-----------: |
+| ![Detail Laporan](images/screenshot_detail_placeholder.png)<br>_Menampilkan informasi lengkap laporan, termasuk data pelapor, kategori, status, dan riwayat tindak lanjut._ | ![Balas Laporan](images/screenshot_balas_placeholder.png)<br>_Petugas dapat memberikan balasan atau tindak lanjut resmi terhadap laporan yang masuk._ |
+
 ---
 
 ## 🛠️ Teknologi & Stack
