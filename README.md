@@ -44,29 +44,45 @@ Panel kontrol eksklusif untuk petugas/admin:
 
 Berikut adalah cuplikan antarmuka aplikasi LaporPeh!:
 
-### 1. Tampilan Pengguna (Public)
+## 🧑‍💻 Tampilan Pengguna (Public)
 
-Antarmuka yang bersih dan mudah digunakan oleh siapa saja.
+Antarmuka yang bersih, responsif, dan mudah digunakan oleh siapa saja.
 
-|                                       Halaman Utama (Home)                                       |                                          Formulir Lapor                                           |
-| :----------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------: |
-| ![Home Page](images/screenshot_home_placeholder.png)<br>_Hero section dengan navigasi intuitif._ | ![Form Lapor](images/screenshot_lapor_placeholder.png)<br>_Formulir pengaduan yang rapi & valid._ |
+### Halaman Utama & Formulir Lapor
 
-|                                      Cek Status Tiket                                      |                                      Hasil Penelusuran                                       |
-| :----------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------: |
-| ![Tracking](images/screenshot_track_placeholder.png)<br>_Halaman pelacakan tiket laporan._ | ![Result](images/screenshot_result_placeholder.png)<br>_Status laporan dan balasan petugas._ |
+| Halaman Utama (Home) | Formulir Lapor |
+| :------------------: | :------------: |
+| ![Home Page](images/screenshot_home_placeholder.png)<br>_Hero section dengan navigasi yang intuitif._ | ![Form Lapor](images/screenshot_lapor_placeholder.png)<br>_Formulir pengaduan yang rapi dan tervalidasi._ |
 
-### 2. Panel Administrator
+### Tracking & Hasil Penelusuran
 
-Desain dashboard profesional untuk efisiensi kerja petugas.
+| Cek Status Tiket | Hasil Penelusuran |
+| :--------------: | :---------------: |
+| ![Tracking](images/screenshot_track_placeholder.png)<br>_Halaman pelacakan status laporan._ | ![Result](images/screenshot_result_placeholder.png)<br>_Informasi status laporan dan balasan petugas._ |
 
-|                                     Login Administrator                                     |                                    Dashboard Utama                                    |
-| :-----------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------: |
-| ![Login Admin](images/screenshot_login.png)<br>_Login split-screen dengan visual branding._ | ![Dashboard](images/screenshot_dashboard.png)<br>_Statistik real-time laporan masuk._ |
+### Feed & Tentang
 
-|                                        Manajemen Data                                         |                                Ekspor Laporan                                 |
-| :-------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------: |
-| ![Kelola Data](images/screenshot_tables.png)<br>_Tabel data lengkap dengan fitur aksi cepat._ | ![Export Data](images/screenshot_export.png)<br>_Cetak laporan ke Excel/PDF._ |
+| Feed Laporan Publik | Tentang Aplikasi |
+| :-----------------: | :--------------: |
+| ![Feed](images/screenshot_feed_placeholder.png)<br>_Menampilkan daftar laporan publik secara ringkas dan informatif._ | ![Tentang](images/screenshot_tentang_placeholder.png)<br>_Informasi mengenai tujuan, fungsi, dan manfaat aplikasi._ |
+
+---
+
+## 🛠️ Panel Administrator
+
+Panel admin dirancang dengan tampilan profesional untuk mendukung efisiensi kerja petugas.
+
+### Login & Dashboard
+
+| Login Administrator | Dashboard Utama |
+| :-----------------: | :-------------: |
+| ![Login Admin](images/screenshot_login.png)<br>_Tampilan login dengan visual branding._ | ![Dashboard](images/screenshot_dashboard.png)<br>_Statistik laporan masuk secara real-time._ |
+
+### Manajemen & Ekspor Data
+
+| Manajemen Data | Ekspor Laporan |
+| :------------: | :------------: |
+| ![Kelola Data](images/screenshot_tables.png)<br>_Pengelolaan data laporan dalam bentuk tabel dengan aksi cepat._ | ![Export Data](images/screenshot_export.png)<br>_Fitur ekspor laporan ke Excel atau PDF._ |
 
 ---
 
