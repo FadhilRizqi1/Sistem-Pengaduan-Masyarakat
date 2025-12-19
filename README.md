@@ -40,7 +40,7 @@ Panel kontrol eksklusif untuk petugas/admin:
 
 ---
 
-## 📸 Galeri Tampilan (Screenshots)
+## 📸 Galeri Tampilan
 
 Berikut adalah cuplikan antarmuka aplikasi LaporPeh!:
 
